@@ -1,0 +1,33 @@
+{
+  "name": "@c6dillon/bagmask-shared-types",
+  "version": "0.1.0",
+  "description": "Shared TypeScript types for Bagmask applications",
+  "license": "UNLICENSED",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c6dillon/bagmask-shared-types.git"
+  },
+  "homepage": "https://github.com/c6dillon/bagmask-shared-types",
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "powershell -NoProfile -Command \"if (Test-Path dist) { Remove-Item -Recurse -Force dist }\"",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "firebase": "^9.19.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.2"
+  }
+}
