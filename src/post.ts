@@ -33,6 +33,8 @@ export interface JobPosting {
   companyType: string;
   companyName: string;
   companyLogoURL?: string | null;
+  companyLogoSourceUpdatedAt?: Date | null;
+  companyLogoLastSyncedAt?: Date | null;
   contactEmail?: string;
   applyUrl?: string;
   directToCompanyUrl?: boolean | null;
@@ -133,6 +135,9 @@ export const jobPostingInits: JobPosting = {
   taxStatus: 'W-2',
   companyType: 'Default',
   companyName: 'Company',
+  companyLogoURL: null,
+  companyLogoSourceUpdatedAt: null,
+  companyLogoLastSyncedAt: null,
   createDate: new Date(),
   datePosted: new Date(),
   expirationDate: new Date(),

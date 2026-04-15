@@ -39,3 +39,7 @@ export function isProviderUserType(
     (PROVIDER_USER_TYPES as readonly string[]).includes(userType)
   );
 }
+
+export function isUserType(userType?: string | null): userType is UserType {
+  return isCompanyUserType(userType) || isProviderUserType(userType);
+}

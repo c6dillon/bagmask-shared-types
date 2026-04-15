@@ -1,6 +1,6 @@
 {
   "name": "@c6dillon/bagmask-shared-types",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "Shared TypeScript types for Bagmask applications",
   "license": "UNLICENSED",
   "private": false,
