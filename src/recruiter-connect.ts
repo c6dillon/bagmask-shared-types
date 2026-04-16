@@ -4,6 +4,18 @@ export interface FirestoreTimestampLike {
   toDate(): Date;
 }
 
+export type RecruiterConnectUnreadReminderStage = '24h' | '3d' | '7d';
+
+export interface RecruiterConnectUnreadReminderState {
+  firstUnreadAt?: FirestoreTimestampLike | Date;
+  lastUnreadMessageAt?: FirestoreTimestampLike | Date;
+  lastReminderSentAt?: FirestoreTimestampLike | Date;
+  nextReminderAt?: FirestoreTimestampLike | Date;
+  lastReminderStage?: RecruiterConnectUnreadReminderStage;
+  reminderCount?: number;
+  suppressedAt?: FirestoreTimestampLike | Date;
+}
+
 export interface RecruiterConnectConversation {
   participants: string[];
   lastUpdated: FirestoreTimestampLike | Date;
@@ -34,6 +46,7 @@ export interface RecruiterConnectConversation {
   willingToTakeCall?: string;
   mobileNumber?: string | null;
   unreadMessageCount?: number;
+  unreadReminderByUser?: { [userId: string]: RecruiterConnectUnreadReminderState };
 }
 
 export interface RecruiterConnectMessage {

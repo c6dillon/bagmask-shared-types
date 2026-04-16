@@ -1,6 +1,20 @@
 import { GeoPoint } from 'firebase/firestore';
 
+import type { FirestoreTimestampLike } from './recruiter-connect';
 import { UserType } from './user-type';
+
+export type RecruiterConnectDigestReminderCadence = 'daily';
+
+export interface RecruiterConnectDigestReminderSettings {
+  enabled?: boolean;
+  cadence?: RecruiterConnectDigestReminderCadence;
+  lastDigestSentAt?: FirestoreTimestampLike | Date;
+  minHoursBetweenSends?: number;
+}
+
+export interface UserNotificationSettings {
+  recruiterConnectUnreadDigest?: RecruiterConnectDigestReminderSettings;
+}
 
 export interface User {
   email: string;
@@ -64,6 +78,7 @@ export interface User {
   aana2025Q2?: string;
   mobileNumber?: string | null;
   position?: Position;
+  notifications?: UserNotificationSettings;
   onboarding?: {
     jobPosterMyJobsTutorial?: boolean;
   };
