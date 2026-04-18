@@ -26,6 +26,20 @@ This repository contains the shared TypeScript type package used across BagMask 
 - Do not edit `dist/` manually.
 - If a change renames or removes a shared type, call out the likely downstream repos that will need updates.
 
+## Shared Firestore Schema Context
+
+For BagMask Firestore schema and shared type decisions, use the redacted schema files in this repo as the source of truth:
+
+- `C:\BagMask\bagmask-shared-types\docs\firestore-prod-schema-notes.md`
+- `C:\BagMask\bagmask-shared-types\schema\firestore-prod-shapes.redacted.json`
+
+When changing Firestore-facing shared interfaces, collection models, or embedded snapshot types:
+
+- read those files first
+- prefer their observed prod shapes over assumptions from local code alone
+- treat embedded job snapshots separately from canonical `posts` records when the schema notes call that out
+- do not add raw prod data to this repo
+
 ## Commands
 
 Run from the repo root:

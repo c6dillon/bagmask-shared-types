@@ -1,0 +1,387 @@
+{
+  "generatedAt": "2026-04-18",
+  "sourceProject": "bagmask-d6f1f",
+  "sampleLimitPerCollection": 10,
+  "redaction": {
+    "rawDocumentValues": false,
+    "documentIds": false,
+    "uidLikeMapKeys": false,
+    "messageContent": false,
+    "emails": false,
+    "names": false
+  },
+  "collections": {
+    "users": {
+      "sampledDocs": 10,
+      "distinctFieldPaths": 39,
+      "alwaysPresentCount": 10,
+      "optionalCount": 29,
+      "typeDriftCount": 2,
+      "variantCount": 8,
+      "keyTypeDrift": {
+        "mobileNumber": ["null", "string"],
+        "userCompanyType": ["null", "string"]
+      },
+      "keyOptionalFields": {
+        "allowRecruiters": 1,
+        "credentials": 1,
+        "preferredEmploymentType": 1,
+        "position.geohash": 4,
+        "position.geopoint": 4,
+        "firstNameOrInitial": 7,
+        "lastNameOrInitial": 7
+      },
+      "notes": [
+        "Sparse profile shape with many low-frequency survey and plan fields.",
+        "Only a small core set of fields appeared in every sampled document."
+      ]
+    },
+    "posts": {
+      "sampledDocs": 10,
+      "distinctFieldPaths": 109,
+      "alwaysPresentCount": 76,
+      "optionalCount": 33,
+      "typeDriftCount": 15,
+      "variantCount": 9,
+      "keyTypeDrift": {
+        "applyRequirePhone": ["boolean", "null"],
+        "applyUrl": ["null", "string"],
+        "city": ["null", "string"],
+        "companyJobID": ["null", "number:int", "string"],
+        "reqNewGrads": ["boolean", "null"],
+        "resCaseMix": ["array<string>", "null"],
+        "resProviderModel": ["null", "string"],
+        "resScheduledCall": ["boolean", "null"],
+        "salSigningBonusBoolean": ["boolean", "null"],
+        "salWeeksPaidVacation": ["null", "string"],
+        "zipCode": ["null", "number:int"]
+      },
+      "keyOptionalFields": {
+        "companyPortal": 1,
+        "paymentType": 1,
+        "companyLogoURL": 3,
+        "salStudentLoan": 3,
+        "salStudentLoanInfo": 3,
+        "directToCompanyUrl": 4,
+        "applyRequirePhone": 5,
+        "applyUrl": 5,
+        "position.geohash": 8,
+        "position.geopoint": 8
+      },
+      "notes": [
+        "Canonical live job record, but not a single clean shape.",
+        "Many facility, compensation, and application fields are nullable or omitted."
+      ]
+    },
+    "companies": {
+      "sampledDocs": 10,
+      "distinctFieldPaths": 32,
+      "alwaysPresentCount": 32,
+      "optionalCount": 0,
+      "typeDriftCount": 1,
+      "variantCount": 1,
+      "keyTypeDrift": {
+        "expiredPostsInfo.expiredPosts": ["array<empty>", "array<object>"]
+      },
+      "notes": [
+        "Cleanest canonical shape in the sampled data.",
+        "Strong candidate for a strict shared interface."
+      ]
+    },
+    "leads": {
+      "sampledDocs": 10,
+      "distinctFieldPaths": 141,
+      "alwaysPresentCount": 79,
+      "optionalCount": 62,
+      "typeDriftCount": 18,
+      "variantCount": 10,
+      "keyTypeDrift": {
+        "job.address": ["null", "string"],
+        "job.applyRequirePhone": ["boolean", "null"],
+        "job.city": ["null", "string"],
+        "job.companyJobID": ["null", "number:int", "string"],
+        "job.facCommunityInfo": ["null", "string"],
+        "job.facCompanyInfo": ["null", "string"],
+        "job.facHospitalInfo": ["null", "string"],
+        "job.postFreePriority": ["boolean", "null"],
+        "job.reqNewGrads": ["boolean", "null"],
+        "job.resCaseMix": ["array<string>", "null"],
+        "job.resProviderModel": ["null", "string"],
+        "job.resScheduledCall": ["boolean", "null"],
+        "job.salCMEAllowance": ["null", "string"],
+        "job.salSigningBonusBoolean": ["boolean", "null"],
+        "job.salWeeksPaidVacation": ["null", "string"],
+        "job.zipCode": ["null", "number:int"]
+      },
+      "keyOptionalFields": {
+        "anonymousUserUID": 3,
+        "job.applyUrl": 3,
+        "job.directToCompanyUrl": 1,
+        "job.salStudentLoan": 2,
+        "job.salStudentLoanInfo": 2,
+        "job.youtubeID": 2,
+        "job.doc.*": 3
+      },
+      "notes": [
+        "Stores a denormalized embedded job snapshot rather than only a job reference.",
+        "Some samples included SDK-like nested job.doc data; do not type this as canonical Post."
+      ]
+    },
+    "jobAlert2": {
+      "sampledDocs": 10,
+      "distinctFieldPaths": 21,
+      "alwaysPresentCount": 20,
+      "optionalCount": 1,
+      "typeDriftCount": 4,
+      "variantCount": 2,
+      "keyTypeDrift": {
+        "preferredEmployment": ["array<empty>", "array<string>"],
+        "preferredLocation": ["array<empty>", "array<object>"],
+        "preferredNotification": ["array<empty>", "array<string>"],
+        "shiftPreference": ["array<empty>", "array<string>"]
+      },
+      "keyOptionalFields": {
+        "lastOnlineRC": 9
+      },
+      "notes": [
+        "Mostly stable alert preferences record.",
+        "Arrays frequently vary between empty arrays and populated arrays."
+      ]
+    },
+    "job_search_metrics": {
+      "sampledDocs": 10,
+      "distinctFieldPaths": 8,
+      "alwaysPresentCount": 8,
+      "optionalCount": 0,
+      "typeDriftCount": 3,
+      "variantCount": 1,
+      "keyTypeDrift": {
+        "employmentTypeSearched": ["array<string>", "string"],
+        "jobStateSearched": ["array<object>", "string"],
+        "taxStatusSearched": ["array<string>", "string"]
+      },
+      "notes": [
+        "Historically inconsistent scalar versus array search filter encoding."
+      ]
+    },
+    "job_view_metrics": {
+      "sampledDocs": 10,
+      "distinctFieldPaths": 159,
+      "alwaysPresentCount": 86,
+      "optionalCount": 73,
+      "typeDriftCount": 20,
+      "variantCount": 8,
+      "keyTypeDrift": {
+        "job.address": ["null", "string"],
+        "job.applyUrl": ["null", "string"],
+        "job.city": ["null", "string"],
+        "job.companyJobID": ["null", "string"],
+        "job.facilityName": ["null", "string"],
+        "job.maxHourly": ["number:int", "string"],
+        "job.minHourly": ["number:int", "string"],
+        "job.paymentType": ["null", "string"],
+        "job.postTotalCostInCents": ["null", "number:int"],
+        "job.salEventualPartnershipBoolean": ["boolean", "null"],
+        "job.salSigningBonusBoolean": ["boolean", "null"],
+        "job.salTuitionReimbursementBoolean": ["boolean", "null"],
+        "job.zipCode": ["null", "number:float", "number:int", "string"]
+      },
+      "keyOptionalFields": {
+        "job.companyPortal": 1,
+        "job.postFreePriority": 1,
+        "user.*": 1
+      },
+      "notes": [
+        "Denormalized embedded job snapshot with the widest type drift in the sample.",
+        "Rare samples also contained an embedded user snapshot."
+      ]
+    },
+    "advertising_metrics": {
+      "sampledDocs": 10,
+      "distinctFieldPaths": 8,
+      "alwaysPresentCount": 8,
+      "optionalCount": 0,
+      "typeDriftCount": 1,
+      "variantCount": 1,
+      "keyTypeDrift": {
+        "jobStateSearched": ["array<object>", "string"]
+      },
+      "notes": [
+        "Stable event record except for historical jobStateSearched drift."
+      ]
+    },
+    "products": {
+      "sampledDocs": 9,
+      "distinctFieldPaths": 16,
+      "alwaysPresentCount": 5,
+      "optionalCount": 11,
+      "typeDriftCount": 1,
+      "variantCount": 4,
+      "keyTypeDrift": {
+        "description": ["null", "string"]
+      },
+      "keyOptionalFields": {
+        "metadata.planPrice": 1,
+        "stripe_metadata_planPrice": 1,
+        "metadata.includedHiPris": 5,
+        "metadata.includedPris": 5,
+        "metadata.includedRC": 5,
+        "metadata.includedRCMax": 5,
+        "tax_code": 8
+      },
+      "notes": [
+        "Product metadata varies by plan family.",
+        "Only nine products existed in the sampled source collection."
+      ]
+    },
+    "customers": {
+      "sampledDocs": 10,
+      "distinctFieldPaths": 3,
+      "alwaysPresentCount": 3,
+      "optionalCount": 0,
+      "typeDriftCount": 0,
+      "variantCount": 1,
+      "notes": [
+        "Very stable Stripe customer root document."
+      ]
+    },
+    "rc_conversations": {
+      "sampledDocs": 10,
+      "distinctFieldPaths": 86,
+      "alwaysPresentCount": 6,
+      "optionalCount": 80,
+      "typeDriftCount": 1,
+      "variantCount": 10,
+      "keyTypeDrift": {
+        "unreadBy": ["array<empty>", "array<string>"]
+      },
+      "dynamicFieldFamilies": [
+        "lastEmailSent.<uid>",
+        "lastReadAtByUser.<uid>",
+        "unreadReminderByUser.<uid>"
+      ],
+      "notes": [
+        "Use Record<string, T> patterns for per-user maps.",
+        "Most variance comes from dynamic UID-keyed map entries rather than true schema forks."
+      ]
+    },
+    "prices": {
+      "sampledDocs": 10,
+      "distinctFieldPaths": 22,
+      "alwaysPresentCount": 12,
+      "optionalCount": 10,
+      "typeDriftCount": 3,
+      "variantCount": 6,
+      "keyTypeDrift": {
+        "description": ["null", "string"],
+        "interval": ["null", "string"],
+        "interval_count": ["null", "number:int"]
+      },
+      "keyOptionalFields": {
+        "stripe_metadata_Description": 2,
+        "recurring": 3,
+        "product": 4,
+        "tax_behavior": 4,
+        "recurring.interval": 7,
+        "recurring.interval_count": 7
+      },
+      "notes": [
+        "One-time and recurring Stripe prices coexist in the same collection group."
+      ]
+    },
+    "checkout_sessions": {
+      "sampledDocs": 10,
+      "distinctFieldPaths": 11,
+      "alwaysPresentCount": 10,
+      "optionalCount": 1,
+      "typeDriftCount": 0,
+      "variantCount": 2,
+      "keyOptionalFields": {
+        "currency": 1
+      },
+      "notes": [
+        "Stable checkout session shape."
+      ]
+    },
+    "subscriptions": {
+      "sampledDocs": 10,
+      "distinctFieldPaths": 18,
+      "alwaysPresentCount": 18,
+      "optionalCount": 0,
+      "typeDriftCount": 3,
+      "variantCount": 1,
+      "keyTypeDrift": {
+        "cancel_at": ["null", "timestamp"],
+        "canceled_at": ["null", "timestamp"],
+        "ended_at": ["null", "timestamp"]
+      },
+      "notes": [
+        "Stable subscription shape with nullable cancellation lifecycle timestamps."
+      ]
+    },
+    "messages": {
+      "sampledDocs": 10,
+      "distinctFieldPaths": 3,
+      "alwaysPresentCount": 3,
+      "optionalCount": 0,
+      "typeDriftCount": 0,
+      "variantCount": 1,
+      "notes": [
+        "Very stable RC message shape."
+      ]
+    },
+    "jobApplications": {
+      "sampledDocs": 10,
+      "distinctFieldPaths": 131,
+      "alwaysPresentCount": 103,
+      "optionalCount": 28,
+      "typeDriftCount": 13,
+      "variantCount": 5,
+      "keyTypeDrift": {
+        "job.applyRequirePhone": ["boolean", "null"],
+        "job.applyUrl": ["null", "string"],
+        "job.city": ["null", "string"],
+        "job.companyJobID": ["null", "number:int", "string"],
+        "job.facCommunityInfo": ["null", "string"],
+        "job.facCompanyInfo": ["null", "string"],
+        "job.facHospitalInfo": ["null", "string"],
+        "job.reqNewGrads": ["boolean", "null"],
+        "job.resCaseMix": ["array<string>", "null"],
+        "job.resProviderModel": ["null", "string"],
+        "job.salSigningBonusBoolean": ["boolean", "null"],
+        "job.zipCode": ["null", "number:int"]
+      },
+      "keyOptionalFields": {
+        "job.companyLogoURL": 3,
+        "job.salStudentLoan": 3,
+        "job.salStudentLoanInfo": 3,
+        "job.youtubeID": 3,
+        "job.directToCompanyUrl": 5,
+        "job.position.geohash": 5,
+        "job.position.geopoint": 5,
+        "job.applyRequirePhone": 6,
+        "job.applyUrl": 6
+      },
+      "notes": [
+        "Embedded job snapshot diverges from canonical posts.",
+        "Some samples used serialized timestamp objects and SDK-like nested job.doc fields."
+      ]
+    },
+    "payments": {
+      "sampledDocs": 10,
+      "distinctFieldPaths": 49,
+      "alwaysPresentCount": 46,
+      "optionalCount": 3,
+      "typeDriftCount": 0,
+      "variantCount": 2,
+      "keyOptionalFields": {
+        "metadata.tax_rate": 1,
+        "latest_charge": 9,
+        "payment_method_configuration_details": 9
+      },
+      "notes": [
+        "Stable Stripe payment intent style documents."
+      ]
+    }
+  }
+}

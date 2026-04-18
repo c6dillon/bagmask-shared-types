@@ -2,6 +2,15 @@
 
 Shared TypeScript types for Bagmask Angular applications.
 
+## Firestore Schema Notes
+
+Redacted production Firestore schema findings used to guide shared type changes live in:
+
+- [docs/firestore-prod-schema-notes.md](docs/firestore-prod-schema-notes.md)
+- [schema/firestore-prod-shapes.redacted.json](schema/firestore-prod-shapes.redacted.json)
+
+These files are tracked in git for repo knowledge and future conversations, but they are not published in the npm package.
+
 ## Local development
 
 ```bash
